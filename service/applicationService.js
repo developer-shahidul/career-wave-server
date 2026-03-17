@@ -46,7 +46,7 @@ const getApplicationsByJobId = async (jobId) => {
   return await applicationCollections.find(job_Id).toArray();
 };
 
-const pacthApplication = async (id, status) => {
+const patchApplication = async (id, status) => {
   const db = await connectToDB();
   const applicationCollections = db.collection("application-collection");
   const query = { _id: new ObjectId(id) };
@@ -61,5 +61,5 @@ module.exports = {
   // getApplications,
   getApplicationsByApplicant,
   getApplicationsByJobId,
-  pacthApplication,
+  patchApplication,
 };

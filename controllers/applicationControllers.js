@@ -16,6 +16,7 @@ const postApplication = async (req, res) => {
     const result = await applicationService.postApplication(body);
     res.send(result);
   } catch (error) {
+    console.error(error);
     res.status(500).send({ message: "Failed to submit application" });
   }
 };
@@ -43,11 +44,11 @@ const getApplicationsByJobId = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch  applications" });
   }
 };
-const pacthApplication = async (req, res) => {
+const patchApplication = async (req, res) => {
   try {
     const id = req.params.id;
     const { status } = req.body;
-    const result = await applicationService.pacthApplication(id, status);
+    const result = await applicationService.patchApplication(id, status);
     res.send(result);
   } catch (error) {
     console.error(error);
@@ -60,5 +61,5 @@ module.exports = {
   postApplication,
   getApplicationsByApplicant,
   getApplicationsByJobId,
-  pacthApplication,
+  patchApplication,
 };

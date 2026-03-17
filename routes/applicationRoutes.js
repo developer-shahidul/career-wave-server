@@ -4,7 +4,8 @@ const {
   postApplication,
   getApplicationsByApplicant,
   getApplicationsByJobId,
-  pacthApplication,
+
+  patchApplication,
 } = require("../controllers/applicationControllers");
 const {
   // logger,
@@ -24,6 +25,6 @@ router.get(
   getApplicationsByApplicant,
 );
 router.get("/:jobId", getApplicationsByJobId);
-router.patch("/:id", pacthApplication);
+router.patch("/:id", patchApplication);
 
 module.exports = router;

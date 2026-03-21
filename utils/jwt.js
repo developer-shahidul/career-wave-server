@@ -12,7 +12,8 @@ router.post("/jwt", (req, res) => {
   /// set in the cookies
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
+    sameSite: "none",
   });
 
   res.send({ token });
